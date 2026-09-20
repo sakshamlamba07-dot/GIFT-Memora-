@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Giftè Memora — Premium Handmade Resin Art, New Delhi</title>
+<meta name="description" content="100% handmade premium resin art. Photo frames, keychains, flower preservation, rakhi, spiritual stands and business QR plates. Pan-India delivery from New Delhi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070a'/%3E%3Ccircle cx='16' cy='17' r='8' fill='%23e0231c'/%3E%3Crect x='4' y='8' width='24' height='2.6' fill='%23dfe7e0'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/memora.css">
+</head>
+<body data-layout-hero="b" data-layout-story="b" data-layout-gallery="b"
+      data-layout-curriculum="b" data-layout-closing="b" data-layout-footer="b">
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div id="vignette"></div>
+<div id="grain"></div>
+<div class="cur-dot" id="cursor"></div>
+
+<!-- ======================================================= intro video
+     Plays the source clip once, full-frame and uncropped (letterboxed, never
+     cropped). Real asset loading happens silently behind it; the interactive
+     scroll world and the hero title only reveal once the clip has finished
+     AND loading is done — whichever takes longer. -->
+<div id="introVideo" aria-hidden="true">
+  <video id="introVideoEl" src="assets/video/1000093473.mp4" muted autoplay
+         playsinline webkit-playsinline preload="auto"></video>
+</div>
+
+<!-- ======================================================= preloader -->
+<div id="pre">
+  <div class="pre-in">
+    <div class="pre-mark">
+      <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="22" cy="24" r="9.5" stroke="#c9956a" stroke-width="1.2"/>
+        <path d="M6 12h32M9.5 17h25M22 8v28" stroke="#dfe7e0" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="pre-jp">✦ THE GIFTÈ MEMORA ✦</div>
+    <div class="pre-bar"><i id="pre-fill"></i></div>
+    <div class="pre-meta">
+      <span>Setting the resin</span><b><span id="pre-pct">0</span>%</b>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= nav -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" data-cursor>
+    <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+      <circle cx="22" cy="25" r="8.6" fill="#c9956a" fill-opacity=".9"/>
+      <path d="M5 13h34M9 18.4h26M22 8.5v27" stroke="#dfe7e0" stroke-width="1.5"/>
+      <path d="M14 35.5h16" stroke="#dfe7e0" stroke-width="1.2" stroke-opacity=".6"/>
+    </svg>
+    <span class="brand-tx"><b>MEMORA</b><i>HANDMADE RESIN ART · NEW DELHI</i></span>
+  </a>
+  <nav class="nav-links" id="navlinks">
+    <a class="nav-link" href="#story" data-cursor><span>Studio</span><span class="alt">ABOUT</span></a>
+    <a class="nav-link" href="#products" data-cursor><span>Collection</span><span class="alt">26 PIECES</span></a>
+    <a class="nav-link" href="#process" data-cursor><span>Process</span><span class="alt">4 STEPS</span></a>
+    <a class="nav-link" href="#voices" data-cursor><span>Reviews</span><span class="alt">5 STARS</span></a>
+    <a class="nav-link" href="#order" data-cursor><span>Order</span><span class="alt">ENQUIRE</span></a>
+  </nav>
+  <div class="acct" id="acct">
+    <button class="acct-btn" id="acctBtn" data-cursor>Sign In</button>
+    <div class="acct-drop" id="acctDrop">
+      <button type="button" class="acct-item" id="acctOrders" data-cursor>My Orders</button>
+      <button type="button" class="acct-item" id="acctAdmin" data-cursor style="display:none">Admin Panel</button>
+      <button type="button" class="acct-item" id="acctSignout" data-cursor>Sign Out</button>
+    </div>
+  </div>
+  <button class="nav-burger" aria-label="Menu" aria-expanded="false" data-cursor><i></i><i></i></button>
+</header>
+
+<div class="page" id="top">
+
+<!-- ======================================================= hero -->
+<section class="hero" id="hero" data-cam="0">
+  <div class="hero-top">
+    <div class="eyebrow" data-rv="fade"><span class="dot"></span> ✦ Premium Handmade Resin Art · New Delhi ✦</div>
+    <h1 class="display h-hero">
+      <span class="mask-line"><span>The Giftè</span></span>
+      <span class="mask-line"><span>Memora.</span></span>
+    </h1>
+    <p class="hero-sub body" data-rv="up">Creativity takes courage. Every piece is poured, set and
+      finished by hand — memories sealed in resin, built to outlive the moment.</p>
+  </div>
+
+  <div class="hero-spacer"></div>
+
+  <div class="hero-foot">
+    <div class="hero-cue" data-rv="fade"><span>Scroll to enter the studio</span><span class="track"><i></i></span></div>
+    <div class="chapters" id="chips">
+      <div class="chip" data-chip="0" data-rv="up" data-cursor><span class="num">01</span>
+        <span class="tx"><b>Handmade</b><p>100% poured and finished by hand in New Delhi.</p></span></div>
+      <div class="chip" data-chip="1" data-rv="up" data-cursor><span class="num">02</span>
+        <span class="tx"><b>Collection</b><p>Twenty-six pieces across eight categories.</p></span></div>
+      <div class="chip" data-chip="2" data-rv="up" data-cursor><span class="num">03</span>
+        <span class="tx"><b>7–14 Days</b><p>Handcrafted to order, then shipped pan-India.</p></span></div>
+      <div class="chip" data-chip="3" data-rv="up" data-cursor><span class="num">04</span>
+        <span class="tx"><b>Fully Custom</b><p>Photo, name, date, flowers, Spotify code, LED.</p></span></div>
+    </div>
+  </div>
+
+  <a class="peek" href="#products" data-view="0" data-rv="fade" data-cursor
+     aria-label="Preview: the collection">
+    <span class="peek-fr" data-frame></span>
+    <span class="peek-play"><svg viewBox="0 0 22 22" fill="none"><path d="M8 5.6 16.4 11 8 16.4z" fill="#dfe7e0"/></svg></span>
+    <span class="peek-cap"><b>Collection</b><i>26 pieces — poured to order</i></span>
+  </a>
+
+  <div class="word-fb" aria-hidden="true">MEMORA</div>
+
+  <div class="hero-side" data-rv="up"><span class="v">MEMORA</span></div>
+</section>
+
+<!-- ======================================================= festival band -->
+<div class="band" id="band" data-rv="fade">
+  <p><b>Rakhi Special</b> — Free delivery over <b>₹1,299</b> · Free gift over <b>₹1,999</b> ·
+     Code <b>CHAHAT27</b> takes ₹50 off orders over ₹499</p>
+</div>
+
+<!-- ======================================================= I · studio -->
+<section class="sec" id="story" data-cam="1">
+  <div class="sec-head" data-rv="fade">
+    <span class="k"><b>01</b> — The Studio</span><span class="rule"></span><span class="k">NEW DELHI</span>
+  </div>
+  <div class="gate-grid">
+    <h2 class="display h-sec" data-rv="up">Resin, flowers and a photograph that refuses to fade.</h2>
+    <div class="gate-copy">
+      <p class="lead" data-rv="up">The Giftè Memora is a handcrafted resin art studio. We take the things
+        that usually get lost — a wedding bouquet, a first photograph, a baby's umbilical cord, a song you
+        played on repeat — and set them in clear resin so they stop being fragile.</p>
+      <p class="body" data-rv="up">Nothing here is mass produced. Each piece is poured, cured, sanded and
+        polished by hand, which is why a keychain takes five to seven days and a wedding frame takes ten to
+        fourteen. Slight variation between pieces is not a defect; it is the signature of something made
+        once, for one person. Our work is built to be an heirloom, not a season.</p>
+      <a class="arrowlink" href="#products" data-rv="fade" data-cursor>
+        <span>See the collection</span>
+        <span class="ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
+      </a>
+    </div>
+  </div>
+  <div class="gate-stats" data-rv="up">
+    <div><b>26</b><span>Products</span></div>
+    <div><b>100%</b><span>Handmade</span></div>
+    <div><b>7–14</b><span>Days to craft</span></div>
+    <div><b>PAN</b><span>India delivery</span></div>
+  </div>
+</section>
+
+<!-- ======================================================= II · collection -->
+<section class="sec" id="products" data-cam="2">
+  <div class="sec-head" data-rv="fade">
+    <span class="k"><b>02</b> — The Collection</span><span class="rule"></span><span class="k">26 PIECES</span>
+  </div>
+  <div class="cur-head">
+    <h2 class="display h-sec" data-rv="up">Every piece we pour, and what it costs.</h2>
+    <p class="body-lg" data-rv="up">Prices are for the standard size shown. Customisation — extra letters at
+      ₹50 each up to seven, a chain at ₹50, fairy lights at ₹50 — is quoted on enquiry. Bulk and corporate
+      pricing is lower; ask before you order.</p>
+  </div>
+
+  <div class="cat-tabs" id="cats" data-rv="fade">
+    <button class="cat-tab on" data-cat="all" data-cursor>All 26</button>
+    <button class="cat-tab" data-cat="frames" data-cursor>Photo Frames</button>
+    <button class="cat-tab" data-cat="keychains" data-cursor>Keychains &amp; Charms</button>
+    <button class="cat-tab" data-cat="jewelry" data-cursor>Flower Preservation</button>
+    <button class="cat-tab" data-cat="rakhi" data-cursor>Rakhi &amp; Festive</button>
+    <button class="cat-tab" data-cat="spiritual" data-cursor>Spiritual</button>
+    <button class="cat-tab" data-cat="business" data-cursor>Business &amp; QR</button>
+    <button class="cat-tab" data-cat="hampers" data-cursor>Hampers &amp; Combos</button>
+    <button class="cat-tab" data-cat="custom" data-cursor>Fully Custom</button>
+  </div>
+
+  <div class="pgrid" id="pgrid">
+
+    <!-- ---------------------------------------------- PHOTO FRAMES -->
+    <article class="pcard" data-cat="frames" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/wedding-memory-frame-1.jpg" alt="Wedding Memory Frame" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Frames</span><span class="sale">-44%</span></div>
+      <h3>Wedding Memory Frame</h3>
+      <p>An 8-inch resin frame holding your photo, names, date, dried flowers from the bouquet and gold flakes.</p>
+      <div class="pmeta"><span>8 inch</span><span>10–14 days</span></div>
+      <div class="pprice"><s>₹4,999</s><b>₹2,799</b>
+        <a class="obtn" href="#order" data-p="Wedding Memory Frame — ₹2,799" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="frames" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/custom-photo-frame-1.jpg" alt="Custom Photo Frame" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Frames</span><span class="sale">-33%</span></div>
+      <h3>Custom Photo Frame</h3>
+      <p>A 6-inch resin frame with pressed flowers and your own text set into the pour.</p>
+      <div class="pmeta"><span>6 inch</span><span>7–10 days</span></div>
+      <div class="pprice"><s>₹1,199</s><b>₹799</b>
+        <a class="obtn" href="#order" data-p="Custom Photo Frame — ₹799" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="frames" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/song-photo-name-board-1.jpg" alt="Song &amp; Photo Name Board" width="700" height="525" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Frames</span></div>
+      <h3>Song &amp; Photo Name Board</h3>
+      <p>Four letters plus a photo, a scannable Spotify code and an LED backlight. Size made to your wall.</p>
+      <div class="pmeta"><span>Custom size</span><span>10–14 days</span></div>
+      <div class="pprice"><b>From ₹850</b>
+        <a class="obtn" href="#order" data-p="Song & Photo Name Board — from ₹850" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="frames" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/baby-umbilical-cord-frame-1.jpg" alt="Baby Umbilical Cord Frame" width="525" height="700" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/baby-umbilical-cord-frame-1.jpg" aria-label="Baby Umbilical Cord Frame photo 1" data-cursor><img src="assets/img/products/baby-umbilical-cord-frame-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/baby-umbilical-cord-frame-2.jpg" aria-label="Baby Umbilical Cord Frame photo 2" data-cursor><img src="assets/img/products/baby-umbilical-cord-frame-2.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/baby-umbilical-cord-frame-3.jpg" aria-label="Baby Umbilical Cord Frame photo 3" data-cursor><img src="assets/img/products/baby-umbilical-cord-frame-3.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Frames</span></div>
+      <h3>Baby Umbilical Cord Frame</h3>
+      <p>A 6-inch frame preserving the umbilical cord on a shell theme — a first keepsake, sealed for good.</p>
+      <div class="pmeta"><span>6 inch</span><span>10–14 days</span></div>
+      <div class="pprice"><b>₹849</b>
+        <a class="obtn" href="#order" data-p="Baby Umbilical Cord Frame — ₹849" data-cursor>Order</a></div>
+    </article>
+
+    <!-- ---------------------------------------------- KEYCHAINS -->
+    <article class="pcard" data-cat="keychains" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/couple-keychain-set-1.jpg" alt="Couple Keychain Set" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Keychains</span><span class="sale">-53%</span></div>
+      <h3>Couple Keychain Set</h3>
+      <p>A matching pair of resin keychains carrying both initials. Sold as a set of two.</p>
+      <div class="pmeta"><span>Standard</span><span>5–7 days</span></div>
+      <div class="pprice"><s>₹849</s><b>₹399</b>
+        <a class="obtn" href="#order" data-p="Couple Keychain Set — ₹399" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="keychains" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/single-name-keychain-1.jpg" alt="Single Name Keychain" width="472" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Keychains</span><span class="sale">-58%</span></div>
+      <h3>Single Name Keychain</h3>
+      <p>One resin keychain with a name or initial, in your choice of colour.</p>
+      <div class="pmeta"><span>Standard</span><span>5–7 days</span></div>
+      <div class="pprice"><s>₹599</s><b>₹249</b>
+        <a class="obtn" href="#order" data-p="Single Name Keychain — ₹249" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="keychains jewelry" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/flower-petal-keychain-1.jpg" alt="Flower Petal Keychain" width="637" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Keychains</span><span class="sale">-53%</span></div>
+      <h3>Flower Petal Keychain</h3>
+      <p>Heart-shaped, set with real petals and gold foil suspended in clear resin.</p>
+      <div class="pmeta"><span>Heart</span><span>5–7 days</span></div>
+      <div class="pprice"><s>₹749</s><b>₹349</b>
+        <a class="obtn" href="#order" data-p="Flower Petal Keychain — ₹349" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="keychains" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/custom-photo-charm-pendant-1.jpg" alt="Custom Photo Charm Pendant" width="591" height="700" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/custom-photo-charm-pendant-1.jpg" aria-label="Custom Photo Charm Pendant photo 1" data-cursor><img src="assets/img/products/custom-photo-charm-pendant-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/custom-photo-charm-pendant-2.jpg" aria-label="Custom Photo Charm Pendant photo 2" data-cursor><img src="assets/img/products/custom-photo-charm-pendant-2.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/custom-photo-charm-pendant-3.jpg" aria-label="Custom Photo Charm Pendant photo 3" data-cursor><img src="assets/img/products/custom-photo-charm-pendant-3.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Charms</span></div>
+      <h3>Custom Photo Charm Pendant</h3>
+      <p>A round resin pendant holding one photo, or two back to back. Chain available at ₹50.</p>
+      <div class="pmeta"><span>Round</span><span>Single / double</span></div>
+      <div class="pprice"><b>₹149 · ₹199</b>
+        <a class="obtn" href="#order" data-p="Custom Photo Charm Pendant — ₹149 single / ₹199 double" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="keychains" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/flower-preservation-initial-keychain-1.jpg" alt="Flower Preservation Initial Keychain" width="525" height="700" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/flower-preservation-initial-keychain-1.jpg" aria-label="Flower Preservation Initial Keychain photo 1" data-cursor><img src="assets/img/products/flower-preservation-initial-keychain-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/flower-preservation-initial-keychain-2.jpg" aria-label="Flower Preservation Initial Keychain photo 2" data-cursor><img src="assets/img/products/flower-preservation-initial-keychain-2.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/flower-preservation-initial-keychain-3.jpg" aria-label="Flower Preservation Initial Keychain photo 3" data-cursor><img src="assets/img/products/flower-preservation-initial-keychain-3.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/flower-preservation-initial-keychain-4.jpg" aria-label="Flower Preservation Initial Keychain photo 4" data-cursor><img src="assets/img/products/flower-preservation-initial-keychain-4.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Keychains</span></div>
+      <h3>Flower Preservation Initial Keychain</h3>
+      <p>A resin initial keychain set with real dried flowers, gold flakes and pearls. Add a name for a personal touch.</p>
+      <div class="pmeta"><span>Standard</span><span>With name +₹50</span></div>
+      <div class="pprice"><b>₹299 · ₹349</b>
+        <a class="obtn" href="#order" data-p="Flower Preservation Initial Keychain — ₹299 without name / ₹349 with name" data-cursor>Order</a></div>
+    </article>
+
+    <!-- ---------------------------------------------- FLOWER PRESERVATION -->
+    <article class="pcard" data-cat="jewelry" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/full-flower-preservation-1.jpg" alt="Full Flower Preservation" width="681" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Preservation</span><span class="sale">-41%</span></div>
+      <h3>Full Flower Preservation</h3>
+      <p>A 5-inch resin piece holding a whole bloom, supplied with a display stand.</p>
+      <div class="pmeta"><span>5 inch</span><span>10–14 days</span></div>
+      <div class="pprice"><s>₹1,099</s><b>₹649</b>
+        <a class="obtn" href="#order" data-p="Full Flower Preservation — ₹649" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="jewelry" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/flower-preservation-bangle-1.jpg" alt="Flower Preservation Bangle" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Preservation</span></div>
+      <h3>Flower Preservation Bangle</h3>
+      <p>A gold bangle carrying a resin medallion with your preserved flower inside it.</p>
+      <div class="pmeta"><span>Bangle</span><span>7–10 days</span></div>
+      <div class="pprice"><b>₹349</b>
+        <a class="obtn" href="#order" data-p="Flower Preservation Bangle — ₹349" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="jewelry" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/flower-preservation-bracelet-1.jpg" alt="Flower Preservation Bracelet" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Preservation</span></div>
+      <h3>Flower Preservation Bracelet</h3>
+      <p>A fine chain bracelet with a single resin flower charm.</p>
+      <div class="pmeta"><span>Chain</span><span>7–10 days</span></div>
+      <div class="pprice"><b>₹259</b>
+        <a class="obtn" href="#order" data-p="Flower Preservation Bracelet — ₹259" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="jewelry" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/varmala-preservation-1.jpg" alt="Varmala Preservation" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Preservation</span><span class="sale">-44%</span></div>
+      <h3>Varmala Preservation</h3>
+      <p>An 8-inch resin frame preserving your wedding varmala with your photo, names and date, finished with dried flowers and gold flakes.</p>
+      <div class="pmeta"><span>8 inch</span><span>10–14 days</span></div>
+      <div class="pprice"><s>₹4,999</s><b>₹2,799</b>
+        <a class="obtn" href="#order" data-p="Varmala Preservation — ₹2,799" data-cursor>Order</a></div>
+    </article>
+
+    <!-- ---------------------------------------------- RAKHI -->
+    <article class="pcard" data-cat="rakhi" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/custom-resin-rakhi-photo-1.jpg" alt="Custom Resin Rakhi — Photo" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Rakhi</span></div>
+      <h3>Custom Resin Rakhi — Photo</h3>
+      <p>A photo set into the rakhi itself. Bulk pricing applies from the fourth piece.</p>
+      <div class="pmeta"><span>Photo</span><span>Bulk ₹150</span></div>
+      <div class="pprice"><b>₹180</b>
+        <a class="obtn" href="#order" data-p="Custom Resin Rakhi (photo) — ₹180 / ₹150 bulk" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="rakhi" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/custom-resin-rakhi-name-1.jpg" alt="Custom Resin Rakhi — Name" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Rakhi</span></div>
+      <h3>Custom Resin Rakhi — Name</h3>
+      <p>A name set in resin instead of a photograph. Bulk pricing from the fourth piece.</p>
+      <div class="pmeta"><span>Name</span><span>Bulk ₹120</span></div>
+      <div class="pprice"><b>₹150</b>
+        <a class="obtn" href="#order" data-p="Custom Resin Rakhi (name) — ₹150 / ₹120 bulk" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="rakhi" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/custom-rakhi-assorted-1.jpg" alt="Custom Rakhi — Assorted" width="525" height="700" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/custom-rakhi-assorted-1.jpg" aria-label="Custom Rakhi — Assorted photo 1" data-cursor><img src="assets/img/products/custom-rakhi-assorted-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/custom-rakhi-assorted-2.jpg" aria-label="Custom Rakhi — Assorted photo 2" data-cursor><img src="assets/img/products/custom-rakhi-assorted-2.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Rakhi</span></div>
+      <h3>Custom Rakhi — Assorted</h3>
+      <p>Resin rakhi finished with pearls and gemstones, in assorted colourways.</p>
+      <div class="pmeta"><span>Assorted</span><span>Bulk ₹119</span></div>
+      <div class="pprice"><b>₹149</b>
+        <a class="obtn" href="#order" data-p="Custom Rakhi (assorted) — ₹149 / ₹119 bulk" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="rakhi" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/rakhi-thali-combo-1.jpg" alt="Rakhi &amp; Thali Combo" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Rakhi</span></div>
+      <h3>Rakhi &amp; Thali Combo</h3>
+      <p>A pooja thali with a matching resin rakhi, finished as one set.</p>
+      <div class="pmeta"><span>Combo</span><span>7–10 days</span></div>
+      <div class="pprice"><b>₹299</b>
+        <a class="obtn" href="#order" data-p="Rakhi & Thali Combo — ₹299" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="rakhi hampers" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/rakhi-gift-hamper-1.jpg" alt="Rakhi Gift Hamper" width="700" height="525" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/rakhi-gift-hamper-1.jpg" aria-label="Rakhi Gift Hamper photo 1" data-cursor><img src="assets/img/products/rakhi-gift-hamper-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/rakhi-gift-hamper-2.jpg" aria-label="Rakhi Gift Hamper photo 2" data-cursor><img src="assets/img/products/rakhi-gift-hamper-2.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/rakhi-gift-hamper-3.jpg" aria-label="Rakhi Gift Hamper photo 3" data-cursor><img src="assets/img/products/rakhi-gift-hamper-3.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/rakhi-gift-hamper-4.jpg" aria-label="Rakhi Gift Hamper photo 4" data-cursor><img src="assets/img/products/rakhi-gift-hamper-4.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Rakhi Hamper</span></div>
+      <h3>Rakhi Gift Hamper</h3>
+      <p>A complete Rakhi gift box: one keychain, one tilak thali, one rakhi and two chocolates. Add fairy lights for ₹50 more.</p>
+      <div class="pmeta"><span>Full hamper set</span><span>7–10 days</span></div>
+      <div class="pprice"><b>₹499</b>
+        <a class="obtn" href="#order" data-p="Rakhi Gift Hamper — ₹499" data-cursor>Order</a></div>
+    </article>
+
+    <!-- ---------------------------------------------- SPIRITUAL -->
+    <article class="pcard" data-cat="spiritual" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/spiritual-resin-stand-2-1.jpg" alt="Spiritual Resin Stand — 2″" width="525" height="700" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/spiritual-resin-stand-2-1.jpg" aria-label="Spiritual Resin Stand — 2″ photo 1" data-cursor><img src="assets/img/products/spiritual-resin-stand-2-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/spiritual-resin-stand-2-2.jpg" aria-label="Spiritual Resin Stand — 2″ photo 2" data-cursor><img src="assets/img/products/spiritual-resin-stand-2-2.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/spiritual-resin-stand-2-3.jpg" aria-label="Spiritual Resin Stand — 2″ photo 3" data-cursor><img src="assets/img/products/spiritual-resin-stand-2-3.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Spiritual</span></div>
+      <h3>Spiritual Resin Stand — 2″</h3>
+      <p>A small stand for the dashboard or the mandir, in your choice of colour.</p>
+      <div class="pmeta"><span>2 inch</span><span>5–7 days</span></div>
+      <div class="pprice"><b>₹249</b>
+        <a class="obtn" href="#order" data-p="Spiritual Resin Stand 2 inch — ₹249" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="spiritual" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/spiritual-resin-stand-3-1.jpg" alt="Spiritual Resin Stand — 3″" width="525" height="700" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/spiritual-resin-stand-3-1.jpg" aria-label="Spiritual Resin Stand — 3″ photo 1" data-cursor><img src="assets/img/products/spiritual-resin-stand-3-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/spiritual-resin-stand-3-2.jpg" aria-label="Spiritual Resin Stand — 3″ photo 2" data-cursor><img src="assets/img/products/spiritual-resin-stand-3-2.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Spiritual</span></div>
+      <h3>Spiritual Resin Stand — 3″</h3>
+      <p>The larger stand, with a deity portrait, gold leaf and pearl detailing.</p>
+      <div class="pmeta"><span>3 inch</span><span>5–7 days</span></div>
+      <div class="pprice"><b>₹349</b>
+        <a class="obtn" href="#order" data-p="Spiritual Resin Stand 3 inch — ₹349" data-cursor>Order</a></div>
+    </article>
+
+    <!-- ---------------------------------------------- BUSINESS -->
+    <article class="pcard" data-cat="business" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/business-qr-resin-plate-1.jpg" alt="Business QR Resin Plate" width="662" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Business</span><span class="sale">-27%</span></div>
+      <h3>Business QR Resin Plate</h3>
+      <p>A 6-inch plate carrying your payment or menu QR code, with a counter stand.</p>
+      <div class="pmeta"><span>6 inch</span><span>7–10 days</span></div>
+      <div class="pprice"><s>₹1,099</s><b>₹799</b>
+        <a class="obtn" href="#order" data-p="Business QR Resin Plate — ₹799" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="business" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/premium-business-qr-plate-8-1.jpg" alt="Premium Business QR Plate — 8″" width="696" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Business</span></div>
+      <h3>Premium Business QR Plate — 8″</h3>
+      <p>Eight inches, dual QR codes and gold accents — sized for a front counter.</p>
+      <div class="pmeta"><span>8 inch</span><span>10–14 days</span></div>
+      <div class="pprice"><b>₹1,349</b>
+        <a class="obtn" href="#order" data-p="Premium Business QR Plate 8 inch — ₹1,349" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="business" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/custom-business-name-plaque-1.jpg" alt="Custom Business Name Plaque" width="700" height="689" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/custom-business-name-plaque-1.jpg" aria-label="Custom Business Name Plaque photo 1" data-cursor><img src="assets/img/products/custom-business-name-plaque-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/custom-business-name-plaque-2.jpg" aria-label="Custom Business Name Plaque photo 2" data-cursor><img src="assets/img/products/custom-business-name-plaque-2.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/custom-business-name-plaque-3.jpg" aria-label="Custom Business Name Plaque photo 3" data-cursor><img src="assets/img/products/custom-business-name-plaque-3.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/custom-business-name-plaque-4.jpg" aria-label="Custom Business Name Plaque photo 4" data-cursor><img src="assets/img/products/custom-business-name-plaque-4.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Business</span></div>
+      <h3>Custom Business Name Plaque</h3>
+      <p>A 4-inch resin plaque with an ombré pour and gold foil lettering.</p>
+      <div class="pmeta"><span>4 inch</span><span>7–10 days</span></div>
+      <div class="pprice"><b>₹449</b>
+        <a class="obtn" href="#order" data-p="Custom Business Name Plaque — ₹449" data-cursor>Order</a></div>
+    </article>
+
+    <!-- ---------------------------------------------- HAMPERS -->
+    <article class="pcard" data-cat="hampers" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/premium-combo-offer-1.jpg" alt="Premium Combo Offer" width="525" height="700" loading="lazy" decoding="async"></div>
+      <div class="ptop"><span class="ptag">Combo</span><span class="sale">-48%</span></div>
+      <h3>Premium Combo Offer</h3>
+      <p>Two heart keychains, one initial keychain and a flower preservation frame in one box.</p>
+      <div class="pmeta"><span>4 pieces</span><span>10–14 days</span></div>
+      <div class="pprice"><s>₹2,499</s><b>₹1,299</b>
+        <a class="obtn" href="#order" data-p="Premium Combo Offer — ₹1,299" data-cursor>Order</a></div>
+    </article>
+
+    <article class="pcard" data-cat="hampers" data-rv="up" data-cursor>
+      <div class="pimg"><img src="assets/img/products/luxury-gift-hamper-1.jpg" alt="Luxury Gift Hamper" width="525" height="700" loading="lazy" decoding="async"></div><div class="pthumbs"><button type="button" class="pth on" data-src="assets/img/products/luxury-gift-hamper-1.jpg" aria-label="Luxury Gift Hamper photo 1" data-cursor><img src="assets/img/products/luxury-gift-hamper-1.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/luxury-gift-hamper-2.jpg" aria-label="Luxury Gift Hamper photo 2" data-cursor><img src="assets/img/products/luxury-gift-hamper-2.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/luxury-gift-hamper-3.jpg" aria-label="Luxury Gift Hamper photo 3" data-cursor><img src="assets/img/products/luxury-gift-hamper-3.jpg" alt="" loading="lazy"></button><button type="button" class="pth" data-src="assets/img/products/luxury-gift-hamper-4.jpg" aria-label="Luxury Gift Hamper photo 4" data-cursor><img src="assets/img/products/luxury-gift-hamper-4.jpg" alt="" loading="lazy"></button></div>
+      <div class="ptop"><span class="ptag">Luxury</span></div>
+      <h3>Luxury Gift Hamper</h3>
+      <p>A QR plate with preserved flowers, chocolates and a balloon — our full presentation box.</p>
+      <div class="pmeta"><span>Hamper</span><span>10–14 days</span></div>
+      <div class="pprice"><b>₹2,599</b>
+        <a class="obtn" href="#order" data-p="Luxury Gift Hamper — ₹2,599" data-cursor>Order</a></div>
+    </article>
+
+    <!-- ---------------------------------------------- CUSTOM -->
+    <article class="pcard pcard--open" data-cat="custom" data-rv="up" data-cursor>
+      <div class="ptop"><span class="ptag">Fully Custom</span></div>
+      <h3>Fully Custom Order</h3>
+      <p>Bring us the thing you want kept — a bouquet, a letter, a ticket, a ring, a recording. We will
+        quote the pour, the size and the finish before anything is made.</p>
+      <div class="pmeta"><span>Any size</span><span>Quoted on enquiry</span></div>
+      <div class="pprice"><b>On enquiry</b>
+        <a class="obtn" href="#order" data-p="Fully Custom Order" data-cursor>Enquire</a></div>
+    </article>
+
+  </div>
+
+  <div class="addons" data-rv="up">
+    <h4>Add-ons</h4>
+    <ul>
+      <li>Extra letters — ₹50 each, up to seven</li>
+      <li>Chain for a charm pendant — ₹50</li>
+      <li>Fairy lights fitted into a frame — ₹50</li>
+      <li>Bulk keychains — ₹149 drops to ₹119</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================================================= III · process -->
+<section class="sec" id="process" data-cam="3">
+  <div class="sec-head" data-rv="fade">
+    <span class="k"><b>03</b> — How It Works</span><span class="rule"></span><span class="k">4 STEPS</span>
+  </div>
+  <div class="cur-head">
+    <h2 class="display h-sec" data-rv="up">Four steps, and nothing is poured until you confirm.</h2>
+    <p class="body-lg" data-rv="up">We do not take payment before the design is agreed. You send what you
+      want kept, we confirm it within twenty-four hours, and the pour starts only after that.</p>
+  </div>
+  <div class="cur" id="cur">
+    <div class="les" data-les="0" data-cursor>
+      <span class="k">01</span>
+      <h3>Place the order<em>ENQUIRE</em></h3>
+      <p>Pick a piece, send the photo, names, date or flowers you want set into it.</p>
+      <span class="t">Same day</span><i class="bar"></i>
+    </div>
+    <div class="les" data-les="1" data-cursor>
+      <span class="k">02</span>
+      <h3>Confirmation &amp; verification<em>WITHIN 24H</em></h3>
+      <p>We check the artwork, confirm the size and the finish, and quote anything custom.</p>
+      <span class="t">≤ 24 hrs</span><i class="bar"></i>
+    </div>
+    <div class="les" data-les="2" data-cursor>
+      <span class="k">03</span>
+      <h3>Handcrafting<em>THE POUR</em></h3>
+      <p>Poured, cured, sanded and polished by hand. Keychains are faster; frames take the full run.</p>
+      <span class="t">7–14 days</span><i class="bar"></i>
+    </div>
+    <div class="les" data-les="3" data-cursor>
+      <span class="k">04</span>
+      <h3>Payment &amp; delivery<em>UPI · PAN INDIA</em></h3>
+      <p>Settle by UPI, then it ships bubble-wrapped anywhere in India.</p>
+      <span class="t">3–5 days</span><i class="bar"></i>
+    </div>
+  </div>
+
+  <div class="dgrid" data-rv="up">
+    <div class="dcard"><span class="di">🚚</span><h3>Pan India Delivery</h3>
+      <p>We ship to every state. Free delivery on orders over ₹1,299.</p></div>
+    <div class="dcard"><span class="di">⏱️</span><h3>7–14 Days</h3>
+      <p>Handcrafting time. Keychains and small stands run 5–7 days.</p></div>
+    <div class="dcard"><span class="di">📦</span><h3>Safe Packaging</h3>
+      <p>Bubble-wrapped and boxed. Report any damage within 48 hours.</p></div>
+  </div>
+</section>
+
+<!-- ======================================================= IV · voices -->
+<section class="sec" id="voices" data-cam="4">
+  <div class="sec-head" data-rv="fade">
+    <span class="k"><b>04</b> — Reviews &amp; Clients</span><span class="rule"></span><span class="k">5 STARS</span>
+  </div>
+  <h2 class="display h-sec" data-rv="up">What arrives, and who it arrives for.</h2>
+
+  <div class="tgrid">
+    <blockquote class="tcard" data-rv="up">
+      <div class="stars">★★★★★</div>
+      <p>The quality is so much better than I expected from the photos. It looks like glass.</p>
+      <cite>Happy Customer — Instagram</cite>
+    </blockquote>
+    <blockquote class="tcard" data-rv="up">
+      <div class="stars">★★★★★</div>
+      <p>Delivered exactly when they said it would be, and the customisation was perfect.</p>
+      <cite>Shivani T. — WhatsApp</cite>
+    </blockquote>
+    <blockquote class="tcard" data-rv="up">
+      <div class="stars">★★★★★</div>
+      <p>I sent flowers from my wedding and they preserved every petal. I cried.</p>
+      <cite>Tanu — Instagram</cite>
+    </blockquote>
+    <blockquote class="tcard" data-rv="up">
+      <div class="stars">★★★★★</div>
+      <p>Ordered in bulk for a corporate gift and every single one was flawless.</p>
+      <cite>Happy Customer — Instagram</cite>
+    </blockquote>
+  </div>
+
+  <div class="clients" data-rv="up">
+    <div class="client"><h3>Delhi 6|X Tandoori Wok</h3><p>Business QR resin plate for the counter.</p><span>Client</span></div>
+    <div class="client"><h3>Aura Collection by Anchal</h3><p>Premium 8-inch dual QR plate with gold accents.</p><span>Client</span></div>
+    <div class="client client--open"><h3>Your Brand Here</h3><p>Corporate and bulk enquiries welcome.</p><span>Coming soon</span></div>
+  </div>
+
+  <div class="revwrap" data-rv="up">
+    <div class="revform-box">
+      <h4>Leave a Review</h4>
+      <div class="rev-stars" id="pubStars" role="radiogroup" aria-label="Rating">
+        <button type="button" class="pub-star" data-v="1" data-cursor aria-label="1 star">★</button>
+        <button type="button" class="pub-star" data-v="2" data-cursor aria-label="2 stars">★</button>
+        <button type="button" class="pub-star" data-v="3" data-cursor aria-label="3 stars">★</button>
+        <button type="button" class="pub-star" data-v="4" data-cursor aria-label="4 stars">★</button>
+        <button type="button" class="pub-star" data-v="5" data-cursor aria-label="5 stars">★</button>
+      </div>
+      <input type="text" id="pubName" placeholder="Your name">
+      <input type="text" id="pubProduct" placeholder="Product (optional)">
+      <textarea id="pubText" rows="3" placeholder="Tell us about your piece…"></textarea>
+      <p class="modal-msg" id="pubMsg"></p>
+      <button class="cta cta--ghost" id="pubSubmit" type="button" data-cursor><i></i><span>✦ Submit Review ✦</span></button>
+    </div>
+    <div class="live-revs" id="liveReviews">
+      <p class="rev-empty">Loading community reviews…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= V · faq -->
+<section class="sec" id="faq" data-cam="5">
+  <div class="sec-head" data-rv="fade">
+    <span class="k"><b>05</b> — Questions &amp; Policy</span><span class="rule"></span><span class="k">FAQ</span>
+  </div>
+  <div class="faq" id="faqlist">
+    <details class="fq" data-rv="up"><summary>How long does an order take?</summary>
+      <p>Seven to fourteen days to handcraft, then three to five days in transit. Keychains and small
+        spiritual stands are faster at five to seven days.</p></details>
+    <details class="fq" data-rv="up"><summary>Where do you deliver?</summary>
+      <p>Anywhere in India. Delivery is free on orders over ₹1,299, and orders over ₹1,999 include a
+        free gift.</p></details>
+    <details class="fq" data-rv="up"><summary>How do I pay?</summary>
+      <p>By UPI, after the design is confirmed. Nothing is poured before you approve it.</p></details>
+    <details class="fq" data-rv="up"><summary>Can everything be customised?</summary>
+      <p>Yes. Photos, names, dates, colours, dried flowers, Spotify codes and LED backlighting are all
+        available. Customisation details are needed up front, before production starts.</p></details>
+    <details class="fq" data-rv="up"><summary>What if it arrives damaged?</summary>
+      <p>Email us within forty-eight hours of delivery with photographs and we will make it right.
+        Because each piece is made to order, we cannot refund after production has begun.</p></details>
+    <details class="fq" data-rv="up"><summary>Do you take bulk or corporate orders?</summary>
+      <p>Yes, and bulk pricing is lower than the listed rates. Send the quantity and the brief and we
+        will quote it.</p></details>
+  </div>
+
+  <div class="pol" data-rv="up">
+    <div class="pbox"><h3>Shipping</h3><ul>
+      <li>Pan-India, 7–14 days to craft</li><li>Free over ₹1,299</li><li>Bubble-wrapped and boxed</li></ul></div>
+    <div class="pbox"><h3>Returns</h3><ul>
+      <li>No refund once production has started</li><li>Damage reported within 48 hours by email</li></ul></div>
+    <div class="pbox"><h3>Terms</h3><ul>
+      <li>Handmade variation is expected</li><li>Order confirmed on payment</li>
+      <li>Customisation required up front</li><li>Bulk pricing on enquiry</li></ul></div>
+    <div class="pbox"><h3>Privacy</h3><ul>
+      <li>Minimal data collected</li><li>Never resold</li><li>Your photos deleted after delivery</li></ul></div>
+  </div>
+</section>
+
+<!-- ======================================================= VI · order -->
+<section class="sec fin" id="order" data-cam="6">
+  <div class="eyebrow" data-rv="fade">Chapter 06 — Place Your Order</div>
+  <h2 class="display" data-rv="up">Send us the memory.</h2>
+  <p class="body-lg" data-rv="up">Tell us the piece, the occasion and what you want set into the resin.
+    We reply within twenty-four hours with a confirmation and a quote.</p>
+
+  <form class="oform" id="oform" data-rv="up" novalidate>
+    <div class="orow">
+      <label><span>Name</span><input name="name" required autocomplete="name"></label>
+      <label><span>Phone</span><input name="phone" type="tel" required autocomplete="tel"></label>
+    </div>
+    <div class="orow">
+      <label><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+      <label><span>Occasion</span>
+        <select name="occasion">
+          <option>Wedding / Anniversary</option><option>Birthday</option><option>Rakhi</option>
+          <option>Friendship Day</option><option>Corporate Gift</option><option>Other</option>
+        </select></label>
+    </div>
+    <label class="ofull"><span>Product</span>
+      <select name="product" id="oproduct">
+        <option>Wedding Memory Frame — ₹2,799</option>
+        <option>Custom Photo Frame — ₹799</option>
+        <option>Song &amp; Photo Name Board — from ₹850</option>
+        <option>Baby Umbilical Cord Frame — ₹849</option>
+        <option>Couple Keychain Set — ₹399</option>
+        <option>Single Name Keychain — ₹249</option>
+        <option>Flower Petal Keychain — ₹349</option>
+        <option>Custom Photo Charm Pendant — ₹149 / ₹199</option>
+        <option>Flower Preservation Initial Keychain — ₹299 without name / ₹349 with name</option>
+        <option>Full Flower Preservation — ₹649</option>
+        <option>Flower Preservation Bangle — ₹349</option>
+        <option>Flower Preservation Bracelet — ₹259</option>
+        <option>Varmala Preservation — ₹2,799</option>
+        <option>Custom Resin Rakhi (photo) — ₹180 / ₹150 bulk</option>
+        <option>Custom Resin Rakhi (name) — ₹150 / ₹120 bulk</option>
+        <option>Custom Rakhi (assorted) — ₹149 / ₹119 bulk</option>
+        <option>Rakhi &amp; Thali Combo — ₹299</option>
+        <option>Rakhi Gift Hamper — ₹499</option>
+        <option>Spiritual Resin Stand 2 inch — ₹249</option>
+        <option>Spiritual Resin Stand 3 inch — ₹349</option>
+        <option>Business QR Resin Plate — ₹799</option>
+        <option>Premium Business QR Plate 8 inch — ₹1,349</option>
+        <option>Custom Business Name Plaque — ₹449</option>
+        <option>Premium Combo Offer — ₹1,299</option>
+        <option>Luxury Gift Hamper — ₹2,599</option>
+        <option>Fully Custom Order</option>
+        <option>Other</option>
+      </select></label>
+    <label class="ofull"><span>Delivery address</span><textarea name="address" rows="2" required></textarea></label>
+    <label class="ofull"><span>Customisation — names, dates, colours, photos</span>
+      <textarea name="custom" rows="3" required></textarea></label>
+    <div class="oact">
+      <button class="cta" type="submit" data-cursor><i></i><span>✦ Place my order ✦</span></button>
+      <a class="cta cta--ghost" id="wa" href="#" target="_blank" rel="noopener" data-cursor>
+        <i></i><span>Send on WhatsApp</span></a>
+    </div>
+    <p class="onote" id="onote" role="status"></p>
+  </form>
+</section>
+
+<!-- ======================================================= footer -->
+<footer class="foot" data-cam="7">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <svg viewBox="0 0 44 44" fill="none" width="34" height="34" aria-hidden="true">
+        <circle cx="22" cy="25" r="8.6" fill="#c9956a" fill-opacity=".9"/>
+        <path d="M5 13h34M9 18.4h26M22 8.5v27" stroke="#dfe7e0" stroke-width="1.5"/>
+      </svg>
+      <p>Handmade resin art from New Delhi. Twenty-six pieces, poured to order, shipped across India.</p>
+    </div>
+    <div><h4>Collection</h4><ul>
+      <li><a href="#products" data-cursor>Photo frames</a></li>
+      <li><a href="#products" data-cursor>Keychains &amp; charms</a></li>
+      <li><a href="#products" data-cursor>Flower preservation</a></li>
+      <li><a href="#products" data-cursor>Rakhi &amp; festive</a></li>
+    </ul></div>
+    <div><h4>Studio</h4><ul>
+      <li><a href="#story" data-cursor>About</a></li>
+      <li><a href="#process" data-cursor>How it works</a></li>
+      <li><a href="#voices" data-cursor>Reviews</a></li>
+      <li><a href="#faq" data-cursor>FAQ &amp; policy</a></li>
+    </ul></div>
+    <div><h4>Contact</h4><ul>
+      <li><a href="mailto:thegiftememora@gmail.com" data-cursor>thegiftememora@gmail.com</a></li>
+      <li><a href="https://www.instagram.com/thegiftememora" target="_blank" rel="noopener" data-cursor>@thegiftememora</a></li>
+      <li><a href="#order" data-cursor>Place an order</a></li>
+    </ul></div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 The Giftè Memora</span>
+    <span>Creativity takes courage</span>
+    <span>New Delhi · Pan-India</span>
+  </div>
+</footer>
+
+</div><!-- /.page -->
+
+<div class="rail" id="rail"></div>
+
+<!-- ======================================================= account / backend UI -->
+<div class="modal-ov" id="authModal">
+  <div class="modal-box">
+    <button type="button" class="modal-x" id="authClose" aria-label="Close" data-cursor>×</button>
+    <div class="modal-tabs">
+      <button type="button" class="modal-tab on" id="tabLogin" data-cursor>Sign In</button>
+      <button type="button" class="modal-tab" id="tabSignup" data-cursor>Create Account</button>
+    </div>
+    <form class="modal-form" id="loginForm">
+      <label><span>Email</span><input type="email" id="loginEmail" required autocomplete="email"></label>
+      <label><span>Password</span><input type="password" id="loginPass" required autocomplete="current-password"></label>
+      <p class="modal-msg" id="loginMsg"></p>
+      <button class="cta" type="submit" data-cursor><i></i><span>✦ Sign In ✦</span></button>
+    </form>
+    <form class="modal-form" id="signupForm" style="display:none">
+      <label><span>Name</span><input type="text" id="signupName" required autocomplete="name"></label>
+      <label><span>Email</span><input type="email" id="signupEmail" required autocomplete="email"></label>
+      <label><span>Password</span><input type="password" id="signupPass" required autocomplete="new-password" minlength="6"></label>
+      <p class="modal-msg" id="signupMsg"></p>
+      <button class="cta" type="submit" data-cursor><i></i><span>✦ Create Account ✦</span></button>
+    </form>
+  </div>
+</div>
+
+<div class="panel-ov" id="dashPanel">
+  <div class="panel-box">
+    <div class="panel-head"><h3>My Orders</h3><button type="button" class="panel-x" id="dashClose" aria-label="Close" data-cursor>×</button></div>
+    <div class="panel-body" id="myOrders"><p class="no-orders">Loading…</p></div>
+  </div>
+</div>
+
+<div class="panel-ov" id="adminPanel">
+  <div class="panel-box panel-box--wide">
+    <div class="panel-head"><h3>Studio Admin</h3><button type="button" class="panel-x" id="adminClose" aria-label="Close" data-cursor>×</button></div>
+    <div class="admin-stats">
+      <div class="stat"><b id="statOrders">0</b><span>Orders</span></div>
+      <div class="stat"><b id="statPending">0</b><span>Pending</span></div>
+      <div class="stat"><b id="statReviews">0</b><span>Reviews</span></div>
+    </div>
+    <h4>Orders</h4>
+    <div class="atable-wrap"><table class="atable"><thead><tr>
+      <th>Date</th><th>Name</th><th>Contact</th><th>Product</th><th>Address / Notes</th><th>Amount</th><th>Status</th>
+    </tr></thead><tbody id="adminOrdersBody"><tr><td colspan="7">Loading…</td></tr></tbody></table></div>
+    <h4>Reviews</h4>
+    <div class="atable-wrap"><table class="atable"><thead><tr>
+      <th>Date</th><th>Name</th><th>Product</th><th>Stars</th><th>Review</th>
+    </tr></thead><tbody id="adminReviewsBody"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/three.min.js"></script>
+<script src="assets/js/video-world.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/backend.js"></script>
+</body>
+</html>
